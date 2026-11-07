@@ -3,6 +3,9 @@ name = "escuta"
 version = "0.1.0"
 edition = "2024"
 description = "Transcrição local do áudio do computador para estudo"
+license = "MIT"
+repository = "https://github.com/jpforol/escuta"
+readme = "README.md"
 
 [features]
 default = ["vulkan"]

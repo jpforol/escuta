@@ -4,13 +4,15 @@ Aplicativo Linux para transcrever o áudio que você ouve enquanto estuda no Fir
 Interface e controle em Rust, inferência local com `whisper-rs`/`whisper.cpp` e captura
 via FFmpeg/PipeWire. Não depende de Python, conta da Hotmart ou acesso ao arquivo do vídeo.
 
-## Usar nesta máquina
+## Usar
+
+Depois de compilar o projeto, execute:
 
 ```bash
 ./iniciar.sh
 ```
 
-Selecione o monitor da saída em que o Firefox toca (nesta máquina, Mesa de Som),
+Selecione o monitor da saída em que o Firefox toca,
 abra a aula e clique em **Iniciar**. Use **Parar** para encerrar a captura e terminar
 os blocos pendentes.
 O botão **Reset** interrompe a captura, descarta o texto da janela e limpa as
@@ -39,14 +41,16 @@ Vulkan, requer também o loader/driver Vulkan e `glslc`. O script abaixo baixa s
 os cabeçalhos de desenvolvimento para `.deps`, sem modificar pacotes do sistema.
 
 ```bash
+git clone https://github.com/jpforol/escuta.git
+cd escuta
 ./scripts/preparar-vulkan.sh
 ./scripts/baixar-modelo.sh
 cargo build --release --locked -j 6
 ```
 
 O modelo padrão é Whisper Large v3 Turbo multilíngue quantizado Q5_0 (~547 MiB).
-O Small Q5_1 (~182 MiB) também está disponível nesta máquina como alternativa leve;
-em outra instalação, baixe-o com `./scripts/baixar-modelo.sh small`. Os pesos usados
+O Small Q5_1 (~182 MiB) é uma alternativa mais leve;
+baixe-o com `./scripts/baixar-modelo.sh small`. Os pesos usados
 por `faster-whisper` têm outro formato; por isso há um download específico GGML.
 Os downloads ocorrem na preparação. O aplicativo não baixa modelos ao iniciar.
 
@@ -103,3 +107,9 @@ Fontes: [whisper-rs](https://docs.rs/whisper-rs/0.16.0/whisper_rs/),
 [whisper.cpp](https://github.com/ggml-org/whisper.cpp),
 [egui/eframe](https://docs.rs/eframe/0.37.0/eframe/),
 [modelo GGML](https://huggingface.co/ggerganov/whisper.cpp).
+
+## Licença
+
+O código deste projeto está disponível sob a [licença MIT](LICENSE).
+Bibliotecas, ferramentas externas e pesos dos modelos mantêm suas próprias licenças.
+Modelos, transcrições e gravações não são distribuídos neste repositório.
