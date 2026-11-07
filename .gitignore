@@ -1,0 +1,11 @@
+/target/
+/.venv/
+/models/*.bin
+/models/*.part
+/exports/
+/test-artifacts/
+/.deps/
+/skills/
+.env
+.env.*
+!.env.example

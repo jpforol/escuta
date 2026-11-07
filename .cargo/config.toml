@@ -1,0 +1,2 @@
+[env]
+CMAKE_INCLUDE_PATH = { value = ".deps/vulkan-headers/include", relative = true }
